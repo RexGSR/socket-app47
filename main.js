@@ -5,8 +5,8 @@ const cors = require("cors");
 
 
 
-let https = require('https').createServer(app);
-const io = require('socket.io')(https, {
+let http = require('http').createServer(app);
+const io = require('socket.io')(http, {
     cors: {
         origin: "*",
     },
@@ -30,7 +30,7 @@ app.get('/index', function (req, res) {
     res.sendFile(path.join(__dirname, '/index.html'));
 });
 
-https.listen(PORT, function () {
+http.listen(PORT, function () {
     console.log('App listening on', PORT)
 });
 
