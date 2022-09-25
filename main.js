@@ -33,14 +33,6 @@ app.get('/index', function (req, res) {
 https.listen(PORT, function () {
     console.log('App listening on', PORT)
 });
-io = new Server(httpServer, {
-    maxHttpBufferSize: 1024,
-    pingInterval: 60 * 1000,
-    pingTimeout: 60 * 4000,
-    cors: {
-        origin: "*",
-    },
-});
 
 io.on("connect_error", (err) => {
   console.log(`connect_error due to ${err.message}`);
